@@ -99,6 +99,8 @@
 	</build>
 
 	<!-- Placeholder for modules -->
-	<!-- <modules> </modules> -->
+	<modules>
+		<module>sample-web-service-war</module>
+	</modules>
 
 </project>

@@ -1,3 +1,5 @@
 /target
 .project
 .settings
+sample-web-service-war/.classpath
+sample-web-service-war/.gitignore
