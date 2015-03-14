@@ -102,6 +102,7 @@
 	<modules>
 		<module>sample-web-service-war</module>
 		<module>sample-web-service-ejb</module>
+		<module>sample-web-service-jpa</module>
 	</modules>
 
 </project>
