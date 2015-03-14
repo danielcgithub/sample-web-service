@@ -82,7 +82,7 @@
 								<classpathPrefix>lib/</classpathPrefix>
 							</manifest>
 						</archive>
-						<webResources>
+<!-- 						<webResources>
 							<resource>
 								<filtering>true</filtering>
 								<directory>src/main/webapp</directory>
@@ -90,7 +90,7 @@
 									<include>**/web.xml</include>
 								</includes>
 							</resource>
-						</webResources>
+						</webResources> -->
 					</configuration>
 				</plugin>
 			</plugins>
@@ -101,6 +101,7 @@
 	<!-- Placeholder for modules -->
 	<modules>
 		<module>sample-web-service-war</module>
+		<module>sample-web-service-ejb</module>
 	</modules>
 
 </project>
