@@ -5,3 +5,5 @@ sample-web-service-war/.classpath
 sample-web-service-war/.gitignore
 sample-web-service-ejb/.classpath
 sample-web-service-ejb/.gitignore
+sample-web-service-jpa/.classpath
+sample-web-service-jpa/.gitignore
