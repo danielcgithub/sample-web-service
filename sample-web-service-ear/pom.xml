@@ -7,22 +7,31 @@
 		<version>1.0.1-SNAPSHOT</version>
 	</parent>
 	<groupId>com.learning.web.service</groupId>
-	<artifactId>sample-web-service-war</artifactId>
+	<artifactId>sample-web-service-ear</artifactId>
 	<version>1.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>ear</packaging>
+
 
 	<build>
-		<finalName>${project.artifactId}</finalName>
+		<finalName>samplejavaeeapp</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-war-plugin</artifactId>
+				<artifactId>maven-ear-plugin</artifactId>
 				<configuration>
-					<archive>
-						<manifestEntries>
-							<Class-Path>sample-web-service-ejb-${project.version}.jar</Class-Path>
-						</manifestEntries>
-					</archive>
+					<finalName>sampleapp</finalName>
+					<defaultJavaBundleDir>lib/</defaultJavaBundleDir>
+					<skinnyWars>true</skinnyWars>
+					<modules>
+						<webModule>
+							<groupId>com.learning.web.service</groupId>
+							<artifactId>sample-web-service-war</artifactId>
+						</webModule>
+						<ejbModule>
+							<groupId>com.learning.web.service</groupId>
+							<artifactId>sample-web-service-ejb</artifactId>
+						</ejbModule>
+					</modules>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -30,15 +39,17 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>javax</groupId>
-			<artifactId>javaee-api</artifactId>
-			<scope>provided</scope>
+			<groupId>com.learning.web.service</groupId>
+			<artifactId>sample-web-service-war</artifactId>
+			<version>${project.version}</version>
+			<type>war</type>
 		</dependency>
+
 		<dependency>
 			<groupId>com.learning.web.service</groupId>
 			<artifactId>sample-web-service-ejb</artifactId>
 			<version>${project.version}</version>
+			<type>ejb</type>
 		</dependency>
 	</dependencies>
-
 </project>

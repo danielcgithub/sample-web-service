@@ -24,21 +24,55 @@
 		<ejb-spec-version>3.2</ejb-spec-version>
 
 		<!-- Testing -->
-		<junit-version>4.0.0</junit-version>
+		<junit-version>4.11</junit-version>
+		<arquillian-version>1.1.4.Final</arquillian-version>
+		<arquillian-wildfly-version>8.1.0.CR2</arquillian-wildfly-version>
+		<arquillian-transaction-version>1.0.1.Final</arquillian-transaction-version>
 	</properties>
 
 
 	<dependencyManagement>
 		<dependencies>
+			<!-- JAVAEE -->
 			<dependency>
 				<groupId>javax</groupId>
 				<artifactId>javaee-api</artifactId>
 				<version>${javaee-api-version}</version>
 			</dependency>
+			<!-- JUnit -->
 			<dependency>
 				<groupId>junit</groupId>
 				<artifactId>junit</artifactId>
 				<version>${junit-version}</version>
+			</dependency>
+			<!-- Arquillian itself -->
+			<dependency>
+				<groupId>org.jboss.arquillian</groupId>
+				<artifactId>arquillian-bom</artifactId>
+				<version>${arquillian-version}</version>
+				<scope>import</scope>
+				<type>pom</type>
+			</dependency>
+			<!-- this is in an extention to arquillian it is optional -->
+			<dependency>
+				<groupId>org.jboss.arquillian.extension</groupId>
+				<artifactId>arquillian-transaction-bom</artifactId>
+				<version>${arquillian-transaction-version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<!-- this is container adapter for wildfly -->
+			<dependency>
+				<groupId>org.wildfly</groupId>
+				<artifactId>wildfly-arquillian-container-embedded</artifactId>
+				<version>${arquillian-wildfly-version}</version>
+			</dependency>
+			<!-- this is the wildfly emb.container - BUT eventually it is not a fully 
+				blown emb.container -->
+			<dependency>
+				<groupId>org.wildfly</groupId>
+				<artifactId>wildfly-embedded</artifactId>
+				<version>${arquillian-wildfly-version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
@@ -82,7 +116,7 @@
 								<classpathPrefix>lib/</classpathPrefix>
 							</manifest>
 						</archive>
-<!-- 						<webResources>
+						<webResources>
 							<resource>
 								<filtering>true</filtering>
 								<directory>src/main/webapp</directory>
@@ -90,7 +124,7 @@
 									<include>**/web.xml</include>
 								</includes>
 							</resource>
-						</webResources> -->
+						</webResources>
 					</configuration>
 				</plugin>
 			</plugins>
@@ -103,6 +137,7 @@
 		<module>sample-web-service-war</module>
 		<module>sample-web-service-ejb</module>
 		<module>sample-web-service-jpa</module>
+		<module>sample-web-service-ear</module>
 	</modules>
 
 </project>
